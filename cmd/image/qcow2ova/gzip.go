@@ -37,7 +37,8 @@ func gzipIt(src, dest string) error {
 	}
 	defer writer.Close()
 
-	archiver := gzip.NewWriter(writer)
+	//archiver := gzip.NewWriter(writer)
+	archiver, _  := gzip.NewWriterLevel(writer, gzip.BestSpeed)
 	defer archiver.Close()
 	archiver.Name = filename
 
